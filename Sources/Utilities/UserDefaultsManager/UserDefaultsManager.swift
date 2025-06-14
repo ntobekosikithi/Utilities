@@ -8,7 +8,7 @@
 import Foundation
 
 public final class UserDefaultsManager: @unchecked Sendable {
-    @MainActor public static let shared = UserDefaultsManager()
+    public static let shared = UserDefaultsManager()
     
     private let defaults: UserDefaults
     
