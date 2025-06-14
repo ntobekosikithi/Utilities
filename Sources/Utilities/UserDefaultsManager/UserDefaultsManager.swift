@@ -18,22 +18,22 @@ public final class UserDefaultsManager: @unchecked Sendable {
     
     // MARK: - String
 
-    public func set(_ value: String, forKey key: String) {
+    public func save(_ value: String, forKey key: String) {
         defaults.set(value, forKey: key)
     }
 
-    public func string(forKey key: String) -> String? {
+    public func retrieve(forKey key: String) -> String? {
         return defaults.string(forKey: key)
     }
 
     // MARK: - Codable
 
-    public func setCodable<T: Codable>(_ value: T, forKey key: String) throws {
+    public func save<T: Codable>(_ value: T, forKey key: String) throws {
         let data = try JSONEncoder().encode(value)
         defaults.set(data, forKey: key)
     }
 
-    public func getCodable<T: Codable>(_ type: T.Type, forKey key: String) throws -> T? {
+    public func retrieve<T: Codable>(_ type: T.Type, forKey key: String) throws -> T? {
         guard let data = defaults.data(forKey: key) else { return nil }
         return try JSONDecoder().decode(T.self, from: data)
     }
