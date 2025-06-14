@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import Alamofire
-
 
 @available(iOS 13.0, *)
 public class ServiceImplementation: Service {

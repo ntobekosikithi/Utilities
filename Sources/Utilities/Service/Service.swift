@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Alamofire
 
 @available(iOS 13.0, macOS 10.15, *)
 public protocol Service {
