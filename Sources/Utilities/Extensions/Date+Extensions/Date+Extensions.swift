@@ -8,23 +8,27 @@
 import Foundation
 
 public extension Date {
-    /// Returns the start of the current week
-    var startOfWeek: Date {
+    func formatForDisplay() -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        return formatter.string(from: self)
+    }
+    
+    func isInCurrentWeek() -> Bool {
         let calendar = Calendar.current
-        let components = calendar.dateComponents([.weekOfYear, .yearForWeekOfYear], from: self)
+        return calendar.isDate(self, equalTo: Date(), toGranularity: .weekOfYear)
+    }
+    
+    func startOfWeek() -> Date {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self)
         return calendar.date(from: components) ?? self
     }
     
-    /// Returns the end of the current week
-    var endOfWeek: Date {
+    func endOfWeek() -> Date {
         let calendar = Calendar.current
-        return calendar.date(byAdding: .day, value: 6, to: startOfWeek) ?? self
-    }
-    
-    /// Formats date for display
-    func formatted(style: DateFormatter.Style = .medium) -> String {
-        let formatter = DateFormatter()
-        formatter.dateStyle = style
-        return formatter.string(from: self)
+        let startOfWeek = self.startOfWeek()
+        return calendar.date(byAdding: .weekOfYear, value: 1, to: startOfWeek) ?? self
     }
 }
