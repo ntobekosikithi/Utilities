@@ -8,7 +8,7 @@
 import Foundation
 
 @available(iOS 13.0, *)
-public class ServiceImplementation: Service {
+class ServiceImplementation: Service {
     private let headers: [String: String]
     private let urlSession: URLSession
     

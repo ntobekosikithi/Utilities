@@ -7,7 +7,6 @@
 
 import Foundation
 
-// Updated to align with GoalType categories
 public enum WorkoutType: String, CaseIterable, Codable, Sendable {
     case running = "Running"
     case cycling = "Cycling"
@@ -15,9 +14,9 @@ public enum WorkoutType: String, CaseIterable, Codable, Sendable {
     case strength = "Strength Training"
     case yoga = "Yoga"
     case walking = "Walking"
-    case cardio = "Cardio"           // NEW: Generic cardio
-    case sports = "Sports"           // NEW: Generic sports
-    case flexibility = "Flexibility" // NEW: Stretching/flexibility
+    case cardio = "Cardio"
+    case sports = "Sports"
+    case flexibility = "Flexibility"
     
     public var systemImage: String {
         switch self {
@@ -32,8 +31,7 @@ public enum WorkoutType: String, CaseIterable, Codable, Sendable {
         case .flexibility: return "figure.flexibility"
         }
     }
-    
-    // NEW: Map workout types to applicable goal types
+
     public var applicableGoalTypes: [GoalType] {
         switch self {
         case .running, .walking:
@@ -52,8 +50,7 @@ public enum WorkoutType: String, CaseIterable, Codable, Sendable {
             return [.workoutCount, .totalDuration, .calories, .steps]
         }
     }
-    
-    // NEW: Get calorie burn rate per minute for different workout types
+
     public var caloriesPerMinute: Double {
         switch self {
         case .running: return 12.0
@@ -67,8 +64,7 @@ public enum WorkoutType: String, CaseIterable, Codable, Sendable {
         case .flexibility: return 2.5
         }
     }
-    
-    // NEW: Estimate steps per minute for step-tracking workouts
+
     public var stepsPerMinute: Double? {
         switch self {
         case .running: return 180.0
@@ -78,7 +74,6 @@ public enum WorkoutType: String, CaseIterable, Codable, Sendable {
         }
     }
     
-    // NEW: Average distance per minute (in km) for distance-tracking workouts
     public var distancePerMinute: Double? {
         switch self {
         case .running: return 0.2    // ~12 km/h pace

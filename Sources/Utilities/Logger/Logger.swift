@@ -8,13 +8,18 @@
 import Foundation
 import OSLog
 
-public final class Logger: @unchecked Sendable {
-    public static let shared = Logger()
-    
+public protocol Logger {
+    func info(_ message: String, file: String, function: String, line: Int)
+    func error(_ message: String, file: String, function: String, line: Int)
+    func debug(_ message: String, file: String, function: String, line: Int)
+}
+
+public final class LoggerImplementation: Logger {
+
     private let osLogger: OSLog
     
-    private init() {
-        self.osLogger = OSLog(subsystem: "com.fitnessapp", category: "general")
+    public init(subsystem: String = "com.fitnessapp", category: String = "general") {
+        self.osLogger = OSLog(subsystem: subsystem, category: category)
     }
     
     public func info(_ message: String, file: String = #file, function: String = #function, line: Int = #line) {
