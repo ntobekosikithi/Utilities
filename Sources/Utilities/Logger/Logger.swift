@@ -14,6 +14,20 @@ public protocol Logger {
     func debug(_ message: String, file: String, function: String, line: Int)
 }
 
+public extension Logger {
+    func info(_ message: String, file: String = #file, function: String = #function, line: Int = #line) {
+        info(message, file: file, function: function, line: line)
+    }
+
+    func error(_ message: String, file: String = #file, function: String = #function, line: Int = #line) {
+        error(message, file: file, function: function, line: line)
+    }
+
+    func debug(_ message: String, file: String = #file, function: String = #function, line: Int = #line) {
+        debug(message, file: file, function: function, line: line)
+    }
+}
+
 public final class LoggerImplementation: Logger {
 
     private let osLogger: OSLog
