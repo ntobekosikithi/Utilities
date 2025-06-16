@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct WorkoutSession: Identifiable, Codable, Equatable {
+public struct WorkoutSession: Identifiable, Codable, Equatable, Sendable {
     public let id: UUID
     public let type: WorkoutType
     public let startTime: Date

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum GoalType: String, CaseIterable, Codable {
+public enum GoalType: String, CaseIterable, Codable, Sendable {
     case workoutCount = "Workout Count"
     case totalDuration = "Total Duration"
     case distance = "Distance"

@@ -8,7 +8,7 @@
 import Foundation
 
 // Updated to align with GoalType categories
-public enum WorkoutType: String, CaseIterable, Codable {
+public enum WorkoutType: String, CaseIterable, Codable, Sendable {
     case running = "Running"
     case cycling = "Cycling"
     case swimming = "Swimming"

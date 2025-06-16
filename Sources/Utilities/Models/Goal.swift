@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Goal: Identifiable, Codable, Equatable {
+public struct Goal: Identifiable, Codable, Equatable, Sendable {
     public let id: UUID
     public let title: String
     public let description: String
