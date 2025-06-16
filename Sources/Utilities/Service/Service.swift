@@ -7,7 +7,7 @@
 
 import Foundation
 
-@available(iOS 13.0, macOS 10.15, *)
+@available(iOS 13.0, *)
 public protocol Service {
     
     /// Performs a GET request and returns a single decoded object
