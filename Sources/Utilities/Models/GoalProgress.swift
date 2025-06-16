@@ -1,5 +1,5 @@
 //
-//  Progress.swift
+//  GoalProgress.swift
 //  Utilities
 //
 //  Created by Ntobeko Sikithi on 2025/06/16.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Progress: Identifiable, Codable, Equatable, Sendable {
+public struct GoalProgress: Identifiable, Codable, Equatable, Sendable {
     public let id: UUID
     public let goalId: UUID
     public let value: Double
