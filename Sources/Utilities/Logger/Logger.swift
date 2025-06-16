@@ -8,7 +8,7 @@
 import Foundation
 import OSLog
 
-public protocol Logger {
+public protocol Logger: Sendable {
     func info(_ message: String, file: String, function: String, line: Int)
     func error(_ message: String, file: String, function: String, line: Int)
     func debug(_ message: String, file: String, function: String, line: Int)

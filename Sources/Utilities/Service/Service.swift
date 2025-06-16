@@ -8,7 +8,7 @@
 import Foundation
 
 @available(iOS 13.0, *)
-public protocol Service {
+public protocol Service: Sendable {
     
     /// Performs a GET request and returns a single decoded object
     /// - Parameter url: The endpoint URL as a String
